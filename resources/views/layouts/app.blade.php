@@ -10,14 +10,15 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="{{asset('css/materialize.min.css')}}"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{{asset('css/main.css')}}" media="screen,projection"/>
 </head>
 
 <body>
     {{-------------------------------------------------- Navbar --------------------------------------------------}}
-    <div class="navba-fixed">
+    <div class="prueba navba-fixed">
         <nav class="orange darken-1">
             <div class="nav-wrapper container">
-                <a href="" class="brand-logo right">Bookstore</a>
+                <a href="/" class="brand-logo right">Bookstore</a>
                 {{------------------------------------ Elementos --------------------------------------------------}}
                 {{-- Categorias --}}
                 <ul class="left hide-on-med-and-down">
@@ -68,6 +69,7 @@
     </div>
 
     <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="{{asset('js/materialize.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
 </body>

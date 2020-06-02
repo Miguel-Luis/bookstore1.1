@@ -15,25 +15,25 @@ class CategorySeeder extends Seeder
     {
         DB::table('categories')->insert([
             'name' => 'Nuevo',
-            'description' => 'Libros en buen estado traidos y muy alta calidad',
+            'description' => 'Hermosos y de muy alta calidad. Huelen a tinta recien impresa.',
             'priority' => 1
         ]);
 
         DB::table('categories')->insert([
             'name' => 'Viejo',
-            'description' => 'Algunos libros en buen estado, otros un poco deteriorados y a muy buen precio',
+            'description' => 'De antaño, un poco deteriorados, pero fascinantes',
             'priority' => 2
         ]);
 
         DB::table('categories')->insert([
             'name' => 'Usado',
-            'description' => 'Libros en buen estado',
+            'description' => 'Vienen de aquí y allá, con un gran recorrido. Han acompañado a muchos lectores voraces.',
             'priority' => 3
         ]);
 
         DB::table('categories')->insert([
             'name' => 'Inglés',
-            'description' => 'Libros escritos en Ingles para lectores bilingües o angloparlantes',
+            'description' => 'Escritos en Ingles para lectores bilingües o angloparlantes',
             'priority' => 1
         ]);
     }
