@@ -68,6 +68,31 @@
         @yield('content')
     </div>
 
+    <footer class="page-footer orange darken-1"">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Bookstore</h5>
+                    <p class="grey-text text-lighten-4">"Aunque este Universo poseo, nada poseo, pues no puedo conocer lo desconocido, si me aferro a lo conocido."</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="https://github.com/Miguel-Luis/" target="_blank">GitHub</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://github.com/Miguel-Luis/bookstore1.1" target="_blank">Repositorio del proyecto</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/luis-miguel-gonzalez-giraldo-909322198/" target="_blank">Linkedin</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2014 Copyright Luis Miguel Gonzalez G, All rights reserved.
+                <a class="grey-text text-lighten-4 right" href="https://www.amazon.es/comprar-libros-espa%C3%B1ol/b?ie=UTF8&node=599364031" target="_blank">Más Libros</a>
+            </div>
+        </div>
+    </footer>
+
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="{{asset('js/materialize.min.js')}}"></script>
