@@ -6,11 +6,11 @@
     <div class="row">
         @foreach ($books as $book)
             <div class="card large col s12 m6 l4 xl3">
-                <div class="card-image waves-effect waves-block waves-light">
+                <div class="card-image waves-effect waves-block waves-light" title="{{$book->book_name}}">
                     <img class="activator" src="images/{{$book->book_image}}">
                 </div>
                 <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">{{$book->book_name}}<i title="Contenido" class="material-icons right">arrow_upward</i></span>
+                    <span class="card-title activator grey-text text-darken-4">{{$book->book_name}}<i title="Contenido" class="material-icons right">eject</i></span>
                     <p>Libro {{$book->name}}</p>
                     <p><a href="/book/{{$book->id}}">Ver más...</a></p>
                 </div>

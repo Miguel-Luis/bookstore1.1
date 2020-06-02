@@ -20,6 +20,26 @@
             <div class="nav-wrapper container">
                 <a href="/" class="brand-logo right">Bookstore</a>
                 {{------------------------------------ Elementos --------------------------------------------------}}
+                {{-- Login --}}
+                <ul class="left hide-on-med-and-down">
+                    <li class="orange darken-1">
+                        <a href="/login">
+                            Login
+                            <i class="material-icons left">account_circle</i>
+                        </a>
+                    </li>
+                </ul>
+
+                {{-- Registro --}}
+                <ul class="left hide-on-med-and-down">
+                    <li class="orange darken-1">
+                        <a href="/login">
+                            Registro
+                            <i class="material-icons left"></i>
+                        </a>
+                    </li>
+                </ul>
+
                 {{-- Categorias --}}
                 <ul class="left hide-on-med-and-down">
                     <li>
@@ -68,7 +88,7 @@
         @yield('content')
     </div>
 
-    <footer class="page-footer orange darken-1"">
+    <footer class="page-footer orange darken-1">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">

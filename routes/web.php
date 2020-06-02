@@ -19,4 +19,6 @@ Route::get('/book/{book}', 'BookController@show');
 
 Route::resource('/category', 'CategoriesController');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/login', function() {
+    return view('auth.login');
+});
