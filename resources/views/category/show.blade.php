@@ -4,6 +4,16 @@
 
 @section('content')
     <div class="row">
+        @if ($category->name != 'Inglés')
+            <h3 class="header center-align">Libros {{$category->name}}s</h3>
+        @else
+            <h3 class="header center-align">Libros {{$category->name}}</h3>
+        @endif
+
+        <a href="/"><i class="small material-icons left">arrow_back</i></a>
+        <p class="center-align">{{$category->description}}</p>
+    </div>
+    <div class="row">
         @foreach ($category->books as $book)
             <div class="card large col s12 m6 l4 xl3">
                 <div class="card-image waves-effect waves-block waves-light">

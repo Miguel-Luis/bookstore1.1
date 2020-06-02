@@ -4,6 +4,7 @@
 
 @section('content')
     <div class="col s12 m12 l12 xl12">
+        <a href="/"><i class="small material-icons left">arrow_back</i></a>
         <h2 class="header center-align">{{$book[0]->book_name}}</h2>
         <div class="card horizontal">
             <div class="card-image" >
@@ -16,7 +17,7 @@
                     <p class="center-align"><b>Categoría:</b> {{$book[0]->name}}</p>
                 </div>
                 <div class="card-action">
-                    <a href="/book">Regresar</a>
+                    <a href="/">Regresar</a>
                 </div>
             </div>
         </div>
