@@ -9,15 +9,20 @@
                 <div class="card-action center-align white text">
                     <h3>Login</h3>
                 </div>
-                <form action="">
+            <form method="POST" action="{{route('login')}}">
+                    {{ csrf_field() }}
                     <div class="card-content">
-                        <div class="form-field">
+                        <div class="input-field {{ $errors->has('email') ? 'red darken-3' : '' }}">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input type="email" name="email" id="email" {{ old('email') }}>
                             <label for="email">Email</label>
-                            <input type="email" name="email" id="email">
+                            {!! $errors->first('email', '<span class="help-block">:message</span>') !!}
                         </div><br>
-                        <div class="form-field">
-                            <label for="password">Contraseña</label>
+                        <div class="input-field {{ $errors->has('password') ? 'red darken-3' : '' }}">
+                            <i class="material-icons prefix">block</i>
                             <input type="password" name="password" id="password">
+                            <label for="password">Contraseña</label>
+                            {!! $errors->first('password', '<span class="help-block">:message</span>') !!}
                         </div><br>
                         <p>
                             <label>

@@ -20,25 +20,58 @@
             <div class="nav-wrapper container">
                 <a href="/" class="brand-logo right">Bookstore</a>
                 {{------------------------------------ Elementos --------------------------------------------------}}
-                {{-- Login --}}
-                <ul class="left hide-on-med-and-down">
-                    <li class="orange darken-1">
-                        <a href="/login">
-                            Login
-                            <i class="material-icons left">account_circle</i>
-                        </a>
-                    </li>
-                </ul>
+                @if(Route::has('login'))
+                    @auth
+                        {{-- Usuario --}}
+                        <ul class="left hide-on-med-and-down">
+                            <li>
+                                <a class="dropdown-trigger" data-target="dropdow-usuario" href="#">
+                                    <i class="material-icons left">account_circle</i>
+                                    {{ Auth::user()->name }}
+                                    <i class="material-icons right">arrow_drop_down</i>
+                                </a>
+                            </li>
+                        </ul>
 
-                {{-- Registro --}}
-                <ul class="left hide-on-med-and-down">
-                    <li class="orange darken-1">
-                        <a href="/login">
-                            Registro
-                            <i class="material-icons left"></i>
-                        </a>
-                    </li>
-                </ul>
+                        {{-- Elementos Categorias --}}
+                        <ul id="dropdow-usuario" class="dropdown-content">
+                            <form method="POST" action="{{route('logout')}}">
+                                {{ csrf_field() }}
+                                <button class="waves-effect waves-light btn deep-orange accent-4">Logout</button>
+                            </form>
+                        </ul>
+
+                        {{-- Estadisticas --}}
+                        <ul class="left hide-on-med-and-down">
+                            <li class="orange darken-1">
+                                <a href="/register">
+                                    Estadisticas
+                                    <i class="material-icons left">trending_up</i>
+                                </a>
+                            </li>
+                        </ul>
+                    @else
+                        {{-- Login --}}
+                        <ul class="left hide-on-med-and-down">
+                            <li class="orange darken-1">
+                                <a href="/login">
+                                    Login
+                                    <i class="material-icons left">account_circle</i>
+                                </a>
+                            </li>
+                        </ul>
+
+                        {{-- Registro --}}
+                        <ul class="left hide-on-med-and-down">
+                            <li class="orange darken-1">
+                                <a href="/register">
+                                    Registro
+                                    <i class="material-icons left">group_add</i>
+                                </a>
+                            </li>
+                        </ul>
+                    @endauth
+                @endif
 
                 {{-- Categorias --}}
                 <ul class="left hide-on-med-and-down">

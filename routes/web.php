@@ -20,5 +20,22 @@ Route::get('/book/{book}', 'BookController@show');
 Route::resource('/category', 'CategoriesController');
 
 Route::get('/login', function() {
-    return view('auth.login');
+    if(Auth::check()) {
+        return 'Ya estas logeado';
+    } else {
+        return view('auth.login');
+    }
 });
+
+Route::post('/login', 'Auth\LoginController@login')->name('login');
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::get('/register', function() {
+    if(Auth::check()) {
+        return 'Actualmente ya estas registrado';
+    } else {
+        return view('auth.register');
+    }
+});
+
+Route::post('/register', 'Auth\RegisterController@register')->name('register');
