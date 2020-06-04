@@ -13,12 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/* |--------------------------------- Book -------------------------------| */
+// Index
 Route::get('/', 'BookController@index');
 
+// Mostrar
 Route::get('/book/{book}', 'BookController@show');
+/* ------------------------------------------------------------------------ */
 
+/* |------------------------------ Category ------------------------------| */
 Route::resource('/category', 'CategoriesController');
+/* ------------------------------------------------------------------------ */
 
+/* |----------------------------- Statistics -----------------------------| */
+Route::get('/statistics', function(){
+    return view('category.statistics');
+})->middleware('auth');
+/* ------------------------------------------------------------------------ */
+
+/* ------------------------------ Autenticación --------------------------- */
+// Login
 Route::get('/login', function() {
     if(Auth::check()) {
         return 'Ya estas logeado';
@@ -30,6 +44,7 @@ Route::get('/login', function() {
 Route::post('/login', 'Auth\LoginController@login')->name('login');
 Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
+// Register
 Route::get('/register', function() {
     if(Auth::check()) {
         return 'Actualmente ya estas registrado';
@@ -39,3 +54,4 @@ Route::get('/register', function() {
 });
 
 Route::post('/register', 'Auth\RegisterController@register')->name('register');
+/* -------------------------------------------------------------------------- */

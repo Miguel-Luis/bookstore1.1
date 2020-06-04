@@ -44,9 +44,19 @@
                         {{-- Estadisticas --}}
                         <ul class="left hide-on-med-and-down">
                             <li class="orange darken-1">
-                                <a href="/register">
+                                <a href="/statistics">
                                     Estadisticas
                                     <i class="material-icons left">trending_up</i>
+                                </a>
+                            </li>
+                        </ul>
+
+                         {{-- Tabla Categorias --}}
+                         <ul class="left hide-on-med-and-down">
+                            <li class="orange darken-1">
+                                <a href="/category">
+                                    Tablas
+                                    <i class="material-icons left">grid_on</i>
                                 </a>
                             </li>
                         </ul>
@@ -140,7 +150,7 @@
         </div>
         <div class="footer-copyright">
             <div class="container">
-                © 2014 Copyright Luis Miguel Gonzalez G, All rights reserved.
+                © 2020 Copyright Luis Miguel Gonzalez G, All rights reserved.
                 <a class="grey-text text-lighten-4 right" href="https://www.amazon.es/comprar-libros-espa%C3%B1ol/b?ie=UTF8&node=599364031" target="_blank">Más Libros</a>
             </div>
         </div>
