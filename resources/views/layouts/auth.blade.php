@@ -18,6 +18,15 @@
     <div class="prueba navba-fixed">
         <nav class="orange darken-1">
             <div class="nav-wrapper container">
+                {{-- Home --}}
+                <ul class="left hide-on-med-and-down">
+                    <li class="orange darken-1">
+                        <a href="/">
+                            Home
+                            <i class="material-icons left">home</i>
+                        </a>
+                    </li>
+                </ul>
                 <a href="/" class="brand-logo right">Bookstore</a>
             </div>
         </nav>

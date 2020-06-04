@@ -33,7 +33,7 @@
                             </li>
                         </ul>
 
-                        {{-- Elementos Categorias --}}
+                        {{-- Elementos Usuario --}}
                         <ul id="dropdow-usuario" class="dropdown-content">
                             <form method="POST" action="{{route('logout')}}">
                                 {{ csrf_field() }}
