@@ -12,7 +12,9 @@
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">{{$book->book_name}}<i title="Contenido" class="material-icons right">eject</i></span>
                     <p>Libro {{$book->name}}</p>
-                    <p><a href="/book/{{$book->id}}">Ver más...</a></p>
+                    <div class="card-action">
+                        <p><a href="/book/{{$book->id}}">Ver más...</a></p>
+                    </div>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">{{$book->book_name}}<i class="material-icons right">close</i></span>

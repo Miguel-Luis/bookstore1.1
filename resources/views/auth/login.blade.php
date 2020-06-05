@@ -9,7 +9,7 @@
                 <div class="card-action center-align white text">
                     <h3>Login</h3>
                 </div>
-            <form method="POST" action="{{route('login')}}">
+                <form method="POST" action="{{route('login')}}">
                     {{ csrf_field() }}
                     <div class="card-content">
                         {{-- Email --}}

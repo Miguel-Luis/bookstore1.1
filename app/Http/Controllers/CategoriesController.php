@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\CategoryRequest;
 use Illuminate\Support\Facades\DB;
 
 class CategoriesController extends Controller
@@ -27,7 +28,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('category.create');
     }
 
     /**
@@ -36,9 +37,16 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        //
+        $category = new Category();
+        $category->name = $request->get('name');
+        $category->description = $request->get('description');
+        $category->priority = $request->get('priority');
+
+        $category->save();
+
+        return redirect('/category');
     }
 
     /**
@@ -83,8 +91,11 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $category->books()->delete();
+        $category->delete();
+
+        return back();
     }
 }
