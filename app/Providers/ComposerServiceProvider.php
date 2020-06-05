@@ -31,7 +31,7 @@ class ComposerServiceProvider extends ServiceProvider
         });
 
         // Estadisticas
-        view()->composer('category.statistics', function($view) {
+        view()->composer('general.statistics', function($view) {
             // Cantidad categorias
             $countC = DB::table('categories')
                      ->select('id')

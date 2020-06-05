@@ -40,9 +40,9 @@ class CategoriesController extends Controller
     public function store(CategoryRequest $request)
     {
         $category = new Category();
-        $category->name = $request->get('name');
-        $category->description = $request->get('description');
-        $category->priority = $request->get('priority');
+        $category->name = $request->post('name');
+        $category->description = $request->post('description');
+        $category->priority = $request->post('priority');
 
         $category->save();
 
@@ -62,6 +62,13 @@ class CategoriesController extends Controller
         ]);
     }
 
+    public function showtables(Category $category)
+    {
+        return view('category.showtables', [
+            'category' => $category
+        ]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -70,7 +77,11 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+
+        return view('category.edit', [
+            'category' => $category
+        ]);
     }
 
     /**
@@ -80,9 +91,16 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryRequest $request, $id)
     {
-        //
+        $category = Category::find($id);
+        $category->name = $request->post('name');
+        $category->description = $request->post('description');
+        $category->priority = $request->post('priority');
+
+        $category->save();
+
+        return redirect('/category');
     }
 
     /**

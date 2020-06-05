@@ -15,15 +15,15 @@
                         {{-- Email --}}
                         <div class="input-field">
                             <i class="material-icons prefix">email</i>
-                            <input type="email" name="email" id="email" @error('email') is-invalid @enderror" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            <input type="email" name="email" id="email" class="validate {{ $errors->has('email') ? 'invalid ' : '' }}" value="{{ old('email') }}" required autocomplete="email" autofocus>
                             <label for="email">Email</label>
                             {!! $errors->first('email', '<span class="help-block red-text">:message</span>') !!}
                         </div><br>
 
                         {{-- Password --}}
                         <div class="input-field">
-                            <i class="material-icons prefix">vpn_key</i>
-                            <input type="password" name="password" id="password" @error('password') is-invalid @enderror" required autocomplete="current-password">
+                            <i class="material-icons prefix">lock</i>
+                            <input type="password" name="password" id="password" required autocomplete="current-password">
                             <label for="password">Password</label>
                             {!! $errors->first('password', '<span class="help-block red-text">:message</span>') !!}
                         </div><br>

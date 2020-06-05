@@ -96,7 +96,7 @@
                 {{-- Elementos Categorias --}}
                 <ul id="dropdow-menu" class="dropdown-content">
                     @foreach ($categories as $category)
-                        <li><a href="/category/{{$category->id}}">{{$category->name}}</a></li>
+                        <li><a href="/category/show/{{$category->id}}">{{$category->name}}</a></li>
                     @endforeach
                 </ul>
                 {{----------------------------------------- Fin Elementos ----------------------------------------}}
