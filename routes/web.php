@@ -17,8 +17,15 @@ use Illuminate\Support\Facades\Route;
 // Index
 Route::get('/', 'BookController@index');
 
-// Mostrar
+// Show
 Route::get('/book/{book}', 'BookController@show');
+
+// Create
+Route::get('/category/{category}/books/create', 'BookController@create');
+
+/* Route::get('/book', function() {
+    return view('book.create');
+}); */
 /* ------------------------------------------------------------------------ */
 
 /* |------------------------------ Category ------------------------------| */
@@ -31,7 +38,7 @@ Route::get('/category/show/{category}', 'CategoriesController@show');
 // Show Tables
 Route::get('/category/show/tables/{category}', 'CategoriesController@showtables')->middleware('auth');
 
-// Crear
+// Create
 Route::get('/category/create', 'CategoriesController@create')->middleware('auth');
 Route::post('/category', 'CategoriesController@store')->middleware('auth');
 
@@ -39,7 +46,7 @@ Route::post('/category', 'CategoriesController@store')->middleware('auth');
 Route::get('/category/{id}/edit', 'CategoriesController@edit')->middleware('auth');
 Route::put('/category/{id}', 'CategoriesController@update')->middleware('auth');
 
-// Eliminar
+// Delete
 Route::delete('/category/{category}', 'CategoriesController@destroy')->name('category.destroy')->middleware('auth');
 
 /* ------------------------------------------------------------------------ */
