@@ -22,6 +22,7 @@ Route::get('/book/{book}', 'BookController@show');
 
 // Create
 Route::get('/category/{category}/books/create', 'BookController@create');
+Route::post('/book/create', 'BookController@store');
 
 /* Route::get('/book', function() {
     return view('book.create');

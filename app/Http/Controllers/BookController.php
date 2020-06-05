@@ -50,7 +50,22 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->hasFile('image')) {
+            $file = $request->file('image');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/', $name);
+        }
+
+        $book = new Book();
+        $book->book_name = $request->post('name');
+        $book->book_author = $request->post('author');
+        $book->book_description = $request->post('description');
+        $book->category_id = $request->post('category');
+        $book->book_image = $name;
+
+        $book->save();
+
+        return redirect('/');
     }
 
     /**

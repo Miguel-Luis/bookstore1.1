@@ -3,7 +3,7 @@
 @section('title', 'Create')
 
 @section('content')
-    <form action="/category" method="POST">
+    <form action="/book/create" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <h2 class="header center-align">Agregar Libro</h2>
@@ -38,7 +38,7 @@
                         <div class="row">
                             {{-- Category --}}
                             <div class="input-field col s6">
-                                <select>
+                                <select id="category" name="category">
                                     <option value="" disabled selected>Elige una categoria</option>
                                     @foreach ($categories as $option)
                                         <option value="{{$option->id}}" @if ($category->id === $option->id) selected='selected' @endif>{{$option->name}}</option>
@@ -82,7 +82,7 @@
                         <div class="modal-content center-align">
                             <i class="material-icons large" style="color: #42a5f5">save</i>
                             <h4 style="color: gray">¿Guardar?</h4>
-                            <p style="color: gray">Guardaras esta categoria...</p>
+                            <p style="color: gray">Guardaras este libro...</p>
                         </div>
                         <div class="modal-footer">
                             <div class="center-align">
