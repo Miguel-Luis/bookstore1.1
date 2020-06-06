@@ -111,9 +111,11 @@ class CategoriesController extends Controller
      */
     public function destroy(Category $category)
     {
-        $category->books()->delete();
+        /* $category->books()->delete();
         $category->delete();
 
-        return back();
+        return back(); */
+
+        return $category;
     }
 }

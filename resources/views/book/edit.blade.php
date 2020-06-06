@@ -1,26 +1,27 @@
 @extends('layouts.app')
 
-@section('title', 'Create')
+@section('title', 'Edit')
 
 @section('content')
-    <form action="/book/create" method="POST" enctype="multipart/form-data">
+    <form action="/book/edit/{{$book->id}}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('put')
         <div class="row">
-            <h2 class="header center-align">Agregar Libro</h2>
+            <h2 class="header center-align">Editar Libro</h2>
             <div class="col s12 m12 l12">
                 <div class="card">
                     <div class="card-content">
                         <div class="row">
                             {{-- Name --}}
                             <div class="input-field col s6">
-                                <input id="name" type="text" class="validate {{ $errors->has('name') ? 'invalid ' : '' }}" name="name" value="{{ old('name') }}">
+                                <input id="name" type="text" class="validate {{ $errors->has('name') ? 'invalid ' : '' }}" name="name" value="{{ old('name', $book->book_name) }}">
                                 <label for="name">Nombre</label>
                             </div>
                             {!! $errors->first('name', '<span class="help-block red-text">:message</span>') !!}
 
                             {{-- Author --}}
                             <div class="input-field col s6">
-                                <input id="author" type="text" class="validate {{ $errors->has('author') ? 'invalid ' : '' }}" name="author" value="{{ old('author') }}">
+                                <input id="author" type="text" class="validate {{ $errors->has('author') ? 'invalid ' : '' }}" name="author" value="{{ old('author', $book->book_author) }}">
                                 <label for="author">Autor</label>
                             </div>
                             {!! $errors->first('author', '<span class="help-block red-text">:message</span>') !!}
@@ -29,7 +30,7 @@
                         {{-- Description --}}
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="description" class="materialize-textarea {{ $errors->has('description') ? 'invalid ' : '' }}" name="description">{{ old('description') }}</textarea>
+                                <textarea id="description" class="materialize-textarea {{ $errors->has('description') ? 'invalid ' : '' }}" name="description">{{ old('description', $book->book_description) }}</textarea>
                                 <label for="description">Descripción</label>
                             </div>
                             {!! $errors->first('description', '<span class="help-block red-text">:message</span>') !!}
@@ -41,7 +42,7 @@
                                 <select id="category" name="category">
                                     <option value="" disabled selected>Elige una categoria</option>
                                     @foreach ($categories as $option)
-                                        <option value="{{$option->id}}" @if ($category === $option->id) selected='selected' @endif>{{$option->name}}</option>
+                                        <option value="{{$option->id}}" @if ($book->category_id === $option->id) selected='selected' @endif>{{$option->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -57,7 +58,7 @@
 
                                     <div class = "file-path-wrapper">
                                         <input class = "file-path validate" type = "text"
-                                            placeholder = "Solo imagenes" />
+                                            placeholder = "{{$book->book_image}}" />
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +66,7 @@
                     </div>
                     <div class="card-action">
                         {{-- Guardar --}}
-                        <a href="#guardar" title="Guardar"
+                        <a href="#editar" title="Guardar"
                         class="waves-effect waves-light btn modal-trigger btn-floating btn-large blue lighten-1 left">
                             <i class="material-icons">save</i>
                         </a>
@@ -78,11 +79,11 @@
                     </div>
 
                     <!-- Modal Structure -->
-                    <div id="guardar" class="modal" style="width: 30%; height: 45%; border-radius: 15px;">
+                    <div id="editar" class="modal" style="width: 30%; height: 45%; border-radius: 15px;">
                         <div class="modal-content center-align">
-                            <i class="material-icons large" style="color: #42a5f5">save</i>
-                            <h4 style="color: gray">¿Guardar?</h4>
-                            <p style="color: gray">Guardaras este libro...</p>
+                            <i class="material-icons large" style="color: #ffc400">mode_edit</i>
+                            <h4 style="color: gray">¿Editar?</h4>
+                            <p style="color: gray">Editaras este libro...</p>
                         </div>
                         <div class="modal-footer">
                             <div class="center-align">

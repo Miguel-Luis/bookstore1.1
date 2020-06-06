@@ -22,11 +22,16 @@ Route::get('/book/{book}', 'BookController@show');
 
 // Create
 Route::get('/category/{category}/books/create', 'BookController@create');
+Route::get('/create', 'BookController@creater');
 Route::post('/book/create', 'BookController@store');
 
-/* Route::get('/book', function() {
-    return view('book.create');
-}); */
+// Edit
+Route::get('/book/{book}/edit', 'BookController@edit');
+Route::put('/book/edit/{book}', 'BookController@update');
+
+// Delete
+Route::delete('/book/{book}/delete', 'BookController@destroy')->name('book.destroy');
+
 /* ------------------------------------------------------------------------ */
 
 /* |------------------------------ Category ------------------------------| */

@@ -27,6 +27,13 @@ class BookController extends Controller
         ]);
     }
 
+    public function creater() {
+        return view('book.create', [
+            'category' => 0,
+            'categories' => Category::all()
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -35,9 +42,10 @@ class BookController extends Controller
     public function create(Category $category)
     {
         $categories = Category::all();
+        $id = $category->id;
 
         return view('book.create', [
-            'category' => $category,
+            'category' => $id,
             'categories' => $categories
         ]);
     }
@@ -93,9 +101,15 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Book $book)
     {
-        //
+        $categories = Category::all();
+        $book = Book::find($book->id);
+
+        return view('book.edit', [
+            'book' => $book,
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -105,9 +119,20 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Book $book)
     {
-        //
+        $book->fill($request->except('image'));
+
+        if($request->hasFile('image')) {
+            $file = $request->file('image');
+            $name = time().$file->getClientOriginalName();
+            $book->book_image = $name;
+            $file->move(public_path().'/images/', $name);
+        }
+
+        $book->save();
+
+        return redirect('/category/show/tables/'.$book->category_id);
     }
 
     /**
@@ -116,8 +141,14 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Book $book)
     {
-        //
+        /* $file_path = public_path().'/images/'.$book->book_image;
+        \File::delete($file_path);
+
+        $book->delete();
+        return back(); */
+
+        return $book;
     }
 }

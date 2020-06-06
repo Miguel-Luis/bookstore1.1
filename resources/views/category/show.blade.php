@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="row">
-        @if ($category->name != 'Inglés')
+        @if (substr($category->name, -1) != 's')
             <h3 class="header center-align">Libros {{$category->name}}s</h3>
         @else
             <h3 class="header center-align">Libros {{$category->name}}</h3>
